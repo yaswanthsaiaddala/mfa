@@ -1,10 +1,10 @@
-import { mount } from "marketing/MarketingApp";
+import { mount } from "auth/AuthApp";
 
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 useHistory;
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
 
@@ -20,6 +20,10 @@ export default () => {
             nextPathname,
           );
         }
+      },
+      onSignIn: () => {
+        onSignIn();
+        console.log("User signed in...!");
       },
     });
     history.listen(onParentNavigate);
