@@ -7,10 +7,7 @@ import AuthApp from "./components/AuthApp";
 import Progress from "./components/Progress";
 import { useState } from "react";
 
-const AuthAppLazy = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return await import("./components/AuthApp");
-});
+const AuthAppLazy = lazy(() => import("./components/AuthApp"));
 const MarketingAppLazy = lazy(() => import("./components/MarketingApp"));
 const DashboardAppLazy = lazy(() => import("./components/DashboardApp"));
 
